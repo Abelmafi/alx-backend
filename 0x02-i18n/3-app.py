@@ -21,7 +21,7 @@ app.url_map.strict_slashes = False
 babel = Babel(app)
 
 
-# @babel.localeselector
+@babel.localeselector
 def get_locale() -> str:
     """Retrieves the locale for a web page.
     Returns:
@@ -38,10 +38,11 @@ def index() -> str:
     '''
     return render_template("3-index.html")
 
+
 # uncomment this line and comment the @babel.localeselector
 # you get this error:
 # AttributeError: 'Babel' object has no attribute 'localeselector'
-babel.init_app(app, locale_selector=get_locale)
+# babel.init_app(app, locale_selector=get_locale)
 
 
 if __name__ == "__main__":
