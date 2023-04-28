@@ -64,7 +64,10 @@ def index() -> str:
     Returns:
         html: homepage
     '''
-    return render_template("5-index.html")
+    message = "You are not logged in."
+    if g.user:
+        message = "You are logged in as {}.".format(g.user['name'])
+    return render_template("5-index.html", message=message)
 
 # uncomment this line and comment the @babel.localeselector
 # you get this error:
